@@ -9,7 +9,7 @@ async function createAirplane(data){
         const airplane = await airplaneRepository.create(data);
         return airplane;
     } catch (error) {
-        if(error.name='SequelizeValidationError'){
+        if(error.name=='SequelizeValidationError'){
             let explanation=[];
             error.errors.forEach((err)=>{
                 explanation.push(err.message);
@@ -35,7 +35,7 @@ async function getAirplane(id){
         const airplane=await airplaneRepository.get(id);
         return airplane;
     } catch (error) {
-        if(error.statusCode=StatusCodes.NOT_FOUND){
+        if(error.statusCode==StatusCodes.NOT_FOUND){
             throw new AppError('The airplane you requested is not present',error.statusCode);
         }
         throw new AppError('Cannot fetch data of all Airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
@@ -47,7 +47,7 @@ async function destroyAirplane(id){
         const response=await airplaneRepository.destroy(id);
         return response;
     } catch (error) {
-        if(error.statusCode=StatusCodes.NOT_FOUND){
+        if(error.statusCode==StatusCodes.NOT_FOUND){
             throw new AppError('The airplane you requested to delete is not present',error.statusCode);
         }
         throw new AppError('Cannot fetch data of all Airplanes',StatusCodes.INTERNAL_SERVER_ERROR);
