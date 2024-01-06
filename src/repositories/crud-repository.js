@@ -11,55 +11,34 @@ class CrudRepository{
     }
 
     async destroy(data){
-        try {
-            const response=await this.model.destroy({
-                where:{
-                    id:data
-                }
-            });
-            return response;
-        } catch (error) {
-            Logger.error('Something went wriong in the Crud Repo : destroy');
-            throw error;
-            
-        }
+        const response=await this.model.destroy({
+            where:{
+                id:data
+            }
+        });
+        return response;
     }
 
     async get(data){
-        try {
-            const response=await this.model.findBYPk(data);
-            return response;
-        } catch (error) {
-            Logger.error('Something went wriong in the Crud Repo : get');
-            throw error;
-            
-        }
+        const response=await this.model.findBYPk(data);
+        return response;
+        
     }
 
     async getAll(data){
-        try {
-            const response=await this.model.findAll(data);
-            return response;
-        } catch (error) {
-            Logger.error('Something went wriong in the Crud Repo : getAll');
-            throw error;
-            
-        }
+        const response=await this.model.findAll(data);
+        return response;
+        
     }
 
     async update(id,data){ //data here is an object in update
-        try {
-            const response=await this.model.update(data,{
-                where:{
-                    id:id
-                }
-            });
-            return response;
-        } catch (error) {
-            Logger.error('Something went wriong in the Crud Repo : update');
-            throw error;
-            
-        }
+        const response=await this.model.update(data,{
+            where:{
+                id:id
+            }
+        });
+        return response;
+        
     }
 }
 
