@@ -15,7 +15,7 @@ router.get('/',
         AirportController.getAirports);
 
 router.get('/:id', 
-        AirportController.getAirports);
+        AirportController.getAirport);
 
 // /api/v1/airplanes DELETE
 router.delete('/:id', 
